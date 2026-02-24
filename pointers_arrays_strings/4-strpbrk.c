@@ -10,18 +10,19 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int dict[93] = {0}, index = 0;
+	int dict[94] = {0}, index = 0;
+	const int ref = 32;
 
 	while (accept[index])
 	{
-		dict[accept[index] - 33] += 1;
+		dict[accept[index] - ref] += 1;
 		index++;
 	}
 
 	index = 0;
 	while (s[index])
 	{
-		if (dict[s[index++] - 33] > 0)
+		if (dict[s[index++] - ref] > 0)
 			return (s + index - 1);
 	}
 
