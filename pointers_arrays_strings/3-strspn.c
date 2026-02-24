@@ -8,23 +8,23 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int dict[57] = {0}, result = 0, stop = 0, index = 0;
+	int dict[93] = {0}, result = 0, stop = 0, index = 0;
 
 	while (accept[index])
 	{
-		dict[accept[index] - 65] += 1;
+		dict[accept[index] - 33] += 1;
 		index++;
 	}
 
 	index = 0;
 	while (!stop && s[index])
 	{
-		if (dict[s[index++] - 65] > 0)
+		if (dict[s[index++] - 33] > 0)
 		{
 			result++;
 		}
 		else
-			stop++;
+			stop = 1;
 	}
 
 	return (result);
