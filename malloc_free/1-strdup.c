@@ -9,17 +9,20 @@
 char *_strdup(char *s)
 {
 char *result;
-int i = 0, len = 0;
+size_t i, len = 0;
 
-while (s[i++])
+if (s == NULL)
+	return (NULL);
+
+while (s[len])
 	len++;
-len++;
-i = 0;
-result = malloc(len);
 
-for (i = 0; i < len; i++)
+result = malloc(len);
+if (result == NULL)
+	return (NULL);
+
+for (i = 0; i <= len; i++)
 	result[i] = s[i];
-result[len] = '\0';
 
 return (result);
 }
