@@ -17,7 +17,7 @@ if (s == NULL)
 while (s[len])
 	len++;
 
-result = malloc(len);
+result = malloc(len + 1);
 if (result == NULL)
 	return (NULL);
 
