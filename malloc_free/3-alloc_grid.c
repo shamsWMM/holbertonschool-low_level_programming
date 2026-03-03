@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-void populate_2d_int_array(int **arr, int h, int w);
+void populate_2d_int_array(int **arr, int w, int h);
 
 /**
  * alloc_grid - allocated a pointer to a w by h array.
@@ -16,11 +16,11 @@ int **result, i = 0;
 if (w <= 0 || h <= 0)
 	return (NULL);
 
-result = malloc(w * sizeof(*result));
-for (i = 0; i < w; i++)
-	result[i] = malloc(h * sizeof(*(result[i])));
+result = malloc(h * sizeof(*result));
+for (i = 0; i < h; i++)
+	result[i] = malloc(w * sizeof(*(result[i])));
 
-populate_2d_int_array(result, h, w);
+populate_2d_int_array(result, w, h);
 
 return (result);
 }
@@ -31,7 +31,7 @@ return (result);
  * @h: height of array.
  * @w: width of array.
  */
-void populate_2d_int_array(int **arr, int h, int w)
+void populate_2d_int_array(int **arr, int w, int h)
 {
 	int i, j;
 
