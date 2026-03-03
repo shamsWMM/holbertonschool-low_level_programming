@@ -25,6 +25,7 @@ for (i = 0; i < h; i++)
 		while (i > 0)
 			free(result[--i]);
 		free(result);
+		return (NULL);
 	}
 }
 
