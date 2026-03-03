@@ -18,7 +18,15 @@ if (w <= 0 || h <= 0)
 
 result = malloc(h * sizeof(*result));
 for (i = 0; i < h; i++)
+{
 	result[i] = malloc(w * sizeof(*(result[i])));
+	if (!result[i])
+	{
+		while (i > 0)
+			free(result[--i]);
+		free(result);
+	}
+}
 
 populate_2d_int_array(result, w, h);
 
