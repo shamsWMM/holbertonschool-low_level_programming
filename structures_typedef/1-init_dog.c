@@ -12,7 +12,9 @@ char *_strdup(char *s);
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-d->name = name; 
+if (!d)
+	return;
+d->name = name;
 d->owner = owner;
 d->age = age;
 }
